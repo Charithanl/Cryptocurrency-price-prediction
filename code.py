@@ -1,3 +1,4 @@
+#import necessary libraries
 import pandas as pd
 import yfinance as yf
 from datetime import date, timedelta
