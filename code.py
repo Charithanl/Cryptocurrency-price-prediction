@@ -4,8 +4,8 @@
 import pandas as pd
 import yfinance as yf
 from datetime import date, timedelta
-import plotly.graph_objects as go
-import plotly.io as pio
+import plotly.graph_objects as go # For creating interactive charts (candlestick, line plots, etc.)
+import plotly.io as pio # For rendering plotly charts
 
 # Use VS Code or Browser renderer
 pio.renderers.default = "browser"
