@@ -7,7 +7,8 @@ from datetime import date, timedelta
 import plotly.graph_objects as go # For creating interactive charts (candlestick, line plots, etc.)
 import plotly.io as pio # For rendering plotly charts
 
-# Use VS Code or Browser renderer
+# Set default Plotly renderer to browser (opens charts in your default web browser)
+# If using VS Code, you can change this to "vscode"
 pio.renderers.default = "browser"
 
 # ==========================================
