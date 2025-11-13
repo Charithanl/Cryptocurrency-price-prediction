@@ -2,6 +2,8 @@
 import pandas as pd
 import yfinance as yf
 from datetime import date, timedelta
+import plotly.graph_objects as go
+
 
 # Get today's date
 today = date.today()
@@ -32,3 +34,26 @@ data.reset_index(drop=True, inplace=True)
 
 # Display
 print(data.head())
+
+
+# ==========================================
+# STEP 2: VISUALIZE PRICE TRENDS
+# ==========================================
+
+# Create an interactive candlestick chart for visual analysis
+figure = go.Figure(
+    data=[
+        go.Candlestick(
+            x=data["Date"],
+            open=data["Open"],
+            high=data["High"],
+            low=data["Low"],
+            close=data["Close"]
+        )
+    ]
+)
+figure.update_layout(
+    title="📈 Bitcoin Price Analysis (Last 2 Years)",
+    xaxis_rangeslider_visible=False
+)
+figure.show()
