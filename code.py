@@ -95,4 +95,11 @@ else:
 
     # Keep only the standard OHLCV (Open, High, Low, Close, Adj Close, Volume) columns
     cols_to_keep = [col for col in ["Open", "High", "Low", "Close", "Adj Close", "Volume"] if col in data.columns]
-    data = data[cols_to_keep].copy()        
+    data = data[cols_to_keep].copy() 
+
+# Drop any rows with missing (NaN) values to avoid visualization errors
+    data.dropna(inplace=True)
+
+    # Add a 'Date' column derived from the DataFrame index for plotting purposes
+    data["Date"] = data.index
+       
