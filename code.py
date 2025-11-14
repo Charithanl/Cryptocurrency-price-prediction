@@ -76,3 +76,16 @@ else:
     )
 
     figure.show()
+
+# ==========================================
+# STEP 2.1: HANDLE EMPTY OR MULTIINDEX DATA
+# ==========================================
+
+# If Yahoo Finance returns no data, show a warning message
+if data.empty:
+    print("⚠️ No data returned from Yahoo Finance. Try again later.")
+else:
+    # If data has MultiIndex columns (e.g., ('BTC-USD', 'Open')), flatten them
+    if isinstance(data.columns, pd.MultiIndex):
+        # Extract the second level of the column tuple (like 'Open', 'High', etc.)
+        data.columns = [col[1] if col[1] != "" else col[0] for col in data.columns]
