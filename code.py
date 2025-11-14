@@ -103,3 +103,6 @@ else:
     # Add a 'Date' column derived from the DataFrame index for plotting purposes
     data["Date"] = data.index
        
+# Display confirmation message and preview first few rows
+    print(f"✅ Data downloaded successfully! ({len(data)} rows)")
+    print(data.head())
