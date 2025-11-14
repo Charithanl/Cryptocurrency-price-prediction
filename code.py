@@ -89,3 +89,10 @@ else:
     if isinstance(data.columns, pd.MultiIndex):
         # Extract the second level of the column tuple (like 'Open', 'High', etc.)
         data.columns = [col[1] if col[1] != "" else col[0] for col in data.columns]
+
+# Print available columns after flattening (for verification)
+    print("Available columns after flattening:", data.columns.tolist())
+
+    # Keep only the standard OHLCV (Open, High, Low, Close, Adj Close, Volume) columns
+    cols_to_keep = [col for col in ["Open", "High", "Low", "Close", "Adj Close", "Volume"] if col in data.columns]
+    data = data[cols_to_keep].copy()        
