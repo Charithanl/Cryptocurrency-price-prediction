@@ -106,3 +106,21 @@ else:
 # Display confirmation message and preview first few rows
     print(f"✅ Data downloaded successfully! ({len(data)} rows)")
     print(data.head())
+
+
+# STEP 3: VISUALIZE PRICE TRENDS (CANDLESTICK CHART)
+
+# Create an interactive candlestick chart using Plotly
+    # Each candlestick shows the opening, closing, highest, and lowest price for a given day
+    figure = go.Figure(
+        data=[
+            go.Candlestick(
+                x=data["Date"],        # X-axis: Date
+                open=data["Open"],     # Y-axis (top of candle): Opening price
+                high=data["High"],     # Y-axis (top wick): Highest price
+                low=data["Low"],       # Y-axis (bottom wick): Lowest price
+                close=data["Close"]    # Y-axis (bottom of candle): Closing price
+            )
+        ]
+    )
+
