@@ -124,3 +124,14 @@ else:
         ]
     )
 
+# Customize the chart layout: titles, labels, and appearance
+    figure.update_layout(
+        title="📈 Bitcoin Price Analysis (Last 2 Years)",   # Chart title
+        xaxis_title="Date",                                # Label for X-axis
+        yaxis_title="BTC-USD Price (USD)",                 # Label for Y-axis
+        xaxis_rangeslider_visible=False,                   # Hide date range slider for cleaner look
+        template="plotly_dark"                             # Use a dark theme for a modern appearance
+    )
+
+    # Display the chart in browser or VS Code (depending on renderer setting)
+    figure.show()
